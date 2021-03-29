@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VoiceViewController" customModule="LearnToWriteABC" customModuleProvider="target">
+            <connections>
+                <outlet property="nextButton" destination="DqI-lO-dff" id="n17-ma-F33"/>
+                <outlet property="playVoiceButton" destination="qLv-5w-uPH" id="fHq-Sz-0Sm"/>
+                <outlet property="previousButton" destination="c75-st-yLS" id="40I-dr-WLt"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="vph-TB-QJk"/>
+                <outlet property="wordLabel" destination="ayH-bW-VLh" id="2c5-QU-E8Q"/>
+                <outlet property="wordTypeSegment" destination="7h6-3T-S4C" id="dFW-13-0Tf"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="—Pngtree—warm tones gouache background_1011131" translatesAutoresizingMaskIntoConstraints="NO" id="VYY-wI-mQT">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paper-removebg-preview" translatesAutoresizingMaskIntoConstraints="NO" id="LT2-HH-saJ">
+                    <rect key="frame" x="41.5" y="224" width="331" height="448"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ayH-bW-VLh">
+                    <rect key="frame" x="41.5" y="269" width="331" height="358"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="200"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="S3U-cE-UQU">
+                    <rect key="frame" x="83" y="794" width="248" height="48"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c75-st-yLS">
+                            <rect key="frame" x="0.0" y="0.0" width="79" height="48"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                            <state key="normal" title="◀︎"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qLv-5w-uPH">
+                            <rect key="frame" x="79" y="0.0" width="90" height="48"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                            <state key="normal" title="🎤"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DqI-lO-dff">
+                            <rect key="frame" x="169" y="0.0" width="79" height="48"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                            <state key="normal" title="▶︎"/>
+                        </button>
+                    </subviews>
+                </stackView>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7h6-3T-S4C">
+                    <rect key="frame" x="103.5" y="74" width="207" height="32"/>
+                    <segments>
+                        <segment title="大写"/>
+                        <segment title="小写"/>
+                    </segments>
+                    <color key="selectedSegmentTintColor" systemColor="systemTealColor"/>
+                </segmentedControl>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="ayH-bW-VLh" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="1TW-Qb-1gY"/>
+                <constraint firstItem="S3U-cE-UQU" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="1pM-sk-Isf"/>
+                <constraint firstItem="ayH-bW-VLh" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="98k-oI-cjZ"/>
+                <constraint firstItem="S3U-cE-UQU" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.6" id="AVQ-sQ-t5U"/>
+                <constraint firstItem="LT2-HH-saJ" firstAttribute="width" secondItem="VYY-wI-mQT" secondAttribute="width" multiplier="0.8" id="HOc-M9-uog"/>
+                <constraint firstItem="7h6-3T-S4C" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="HUm-2s-xwB"/>
+                <constraint firstItem="7h6-3T-S4C" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.5" id="Kzb-BX-aW8"/>
+                <constraint firstItem="LT2-HH-saJ" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="LpZ-Dn-9Fl"/>
+                <constraint firstItem="7h6-3T-S4C" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="P5G-kt-psp"/>
+                <constraint firstAttribute="trailing" secondItem="VYY-wI-mQT" secondAttribute="trailing" id="QLA-Ne-o9I"/>
+                <constraint firstItem="ayH-bW-VLh" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.4" id="U33-4J-fFc"/>
+                <constraint firstItem="LT2-HH-saJ" firstAttribute="height" secondItem="VYY-wI-mQT" secondAttribute="height" multiplier="0.5" id="UAl-ZV-bcu"/>
+                <constraint firstItem="VYY-wI-mQT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="VmE-lM-Zqq"/>
+                <constraint firstAttribute="bottom" secondItem="VYY-wI-mQT" secondAttribute="bottom" id="b5N-fV-nRL"/>
+                <constraint firstItem="ayH-bW-VLh" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.8" id="kq8-LI-xu3"/>
+                <constraint firstItem="VYY-wI-mQT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="m3u-6w-uG2"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="S3U-cE-UQU" secondAttribute="bottom" constant="20" id="uE2-P0-8Bo"/>
+                <constraint firstItem="LT2-HH-saJ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="zVY-fJ-bLP"/>
+            </constraints>
+            <point key="canvasLocation" x="18.840579710144929" y="108.48214285714285"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="paper-removebg-preview" width="476" height="468"/>
+        <image name="—Pngtree—warm tones gouache background_1011131" width="3545" height="5315"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
