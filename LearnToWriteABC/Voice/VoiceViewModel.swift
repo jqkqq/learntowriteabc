@@ -11,7 +11,6 @@ class VoiceViewModel: ViewModelType {
     
     //MARK: - Inputs
     struct Input {
-        var loadData: Observable<Void>
         var nextAction: Observable<Void>
         var previousAction: Observable<Void>
         var chanegType: Observable<Int>
@@ -33,23 +32,26 @@ class VoiceViewModel: ViewModelType {
     private var playVoiceSubject = PublishSubject<Void>()
     private var disposebag = DisposeBag()
     
-    //MARK: - function
-    func transform(input: Input) -> Output {
+    init() {
         WordData().createData()
             .subscribe { [unowned self](data) in
                 let capitalData = data.enumerated()
                     .filter({ $0.offset % 2 == 0 })
                     .map({ $0.element })
                 self.data.accept(capitalData)
-                self.totalData.accept(data)                
+                self.totalData.accept(data)
             } onFailure: { (error) in
                 if let error = error as? WordDataError {
                     print(error.rawValue)
                 }
-                print(error.localizedDescription)                
+                print(error.localizedDescription)
             }
             .disposed(by: disposebag)
-        
+    }
+    
+    //MARK: - function
+    func transform(input: Input) -> Output {
+                
         seletIndex
             .filter({ $0 >= 0 })
             .withLatestFrom(data)

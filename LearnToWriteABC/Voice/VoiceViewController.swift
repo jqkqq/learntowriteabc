@@ -31,7 +31,6 @@ class VoiceViewController: UIViewController {
     func binding() {
         let input = VoiceViewModel
             .Input(
-                loadData: rx.sentMessage(#selector(viewDidLoad)).map({ _ in () }),
                 nextAction: nextButton.rx.tap.asObservable(),
                 previousAction: previousButton.rx.tap.asObservable(),
                 chanegType: wordTypeSegment.rx.selectedSegmentIndex.asObservable(),

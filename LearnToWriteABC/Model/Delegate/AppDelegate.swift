@@ -20,7 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         drawNav.viewControllers = [DrawViewController()]
         drawNav.tabBarItem = UITabBarItem(title: "寫字", image: UIImage(named: ""), selectedImage: UIImage(named: ""))
         
-        tabbar.viewControllers = [voiceNav, drawNav]
+        let testNav = UINavigationController()
+        testNav.viewControllers = [TestViewController()]
+        testNav.tabBarItem = UITabBarItem(title: "測驗", image: UIImage(named: ""), selectedImage: UIImage(named: ""))
+        
+        tabbar.viewControllers = [voiceNav, drawNav, testNav]
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = tabbar
         window?.makeKeyAndVisible()
