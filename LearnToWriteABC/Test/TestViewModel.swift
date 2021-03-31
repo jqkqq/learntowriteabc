@@ -13,6 +13,7 @@ class TestViewModel: ViewModelType {
         var generateQuestion: Observable<Void>
         var sendAnswer: Observable<Int>
         var nextQuestion: Observable<Void>
+        var restart: Observable<Void>
     }
     
     //MARK: - Output
@@ -20,6 +21,9 @@ class TestViewModel: ViewModelType {
         var question: Driver<String>
         var answerButton: Driver<[String]>
         var numberQuestion: Driver<Int>
+        var isCorrect: Driver<Bool>
+        var nextButtonIsHidden: Driver<Bool>
+        var finish: Driver<Int>
     }
     
     //MARK: - porperties
@@ -32,6 +36,10 @@ class TestViewModel: ViewModelType {
     private var isCapital = PublishSubject<Bool>()
     private var answerButtonSubject = PublishSubject<[String]>()
     private var generateQuestionSubject = PublishSubject<Void>()
+    private var isCorrectSubject = PublishSubject<Bool>()
+    private var correctTime = BehaviorRelay<Int>(value: 0)
+    private var nextButtonIsHiddenSubject = PublishSubject<Bool>()
+    private var finishSubject = PublishSubject<Int>()
     
     init() {
         WordData().createData()
@@ -84,6 +92,30 @@ class TestViewModel: ViewModelType {
             .bind(to: answerButtonSubject)
             .disposed(by: disposeBag)
         
+        isCorrectSubject
+            .filter({ $0 == true })            
+            .withLatestFrom(correctTime)
+            .map({ $0 + 1 })
+            .bind(to: correctTime)
+            .disposed(by: disposeBag)
+        
+        isCorrectSubject
+            .withLatestFrom(numberQuestionRelay)
+            .filter({ $0 == 10 })
+            .withLatestFrom(correctTime)
+            .bind(to: finishSubject)
+            .disposed(by: disposeBag)
+        
+        Observable
+            .merge(
+                isCorrectSubject
+                    .withLatestFrom(numberQuestionRelay)
+                    .map({ $0 == 10 ? true: false }),
+                generateQuestionSubject.map({ _ in true })
+            )
+            .bind(to: nextButtonIsHiddenSubject)
+            .disposed(by: disposeBag)
+        
         input.generateQuestion
             .bind(to: generateQuestionSubject)
             .disposed(by: disposeBag)
@@ -97,15 +129,45 @@ class TestViewModel: ViewModelType {
         
         input.nextQuestion
             .withLatestFrom(numberQuestionRelay)
-            .filter({ $0 < 10 })
+            .filter({ $0 < 10 })            
             .map({ $0 + 1 })
             .bind(to: numberQuestionRelay)
+            .disposed(by: disposeBag)
+        
+        let sendData = Observable.combineLatest(isCapital, radomIndex, input.sendAnswer, answerButtonSubject)
+        
+        input.sendAnswer
+            .withLatestFrom(sendData)
+            .map { (isCapital, radomIndex, selectIndex, answers) -> Bool in
+                let answer = isCapital ?
+                    self.uppercaseData.value[radomIndex]: self.capitalData.value[radomIndex]
+                let selectAnswer = answers[selectIndex]                
+                return answer == selectAnswer
+            }
+            .bind(to: isCorrectSubject)
+            .disposed(by: disposeBag)
+        
+        input.restart
+            .map({ 1 })
+            .bind(to: numberQuestionRelay)
+            .disposed(by: disposeBag)
+        
+        input.restart
+            .bind(to: generateQuestionSubject)
+            .disposed(by: disposeBag)
+        
+        input.restart
+            .map({ 0 })
+            .bind(to: correctTime)
             .disposed(by: disposeBag)
 
         return Output(
             question: questionSubject.asDriver(onErrorJustReturn: "A"),
             answerButton: answerButtonSubject.asDriver(onErrorJustReturn: []),
-            numberQuestion: numberQuestionRelay.asDriver())
+            numberQuestion: numberQuestionRelay.asDriver(),
+            isCorrect: isCorrectSubject.asDriver(onErrorJustReturn: false),
+            nextButtonIsHidden: nextButtonIsHiddenSubject.asDriver(onErrorJustReturn: true),
+            finish: finishSubject.asDriver(onErrorJustReturn: 0))
     }
     
 }

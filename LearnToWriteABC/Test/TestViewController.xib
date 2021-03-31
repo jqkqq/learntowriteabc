@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="firstAnswerButton" destination="5OW-ab-XoS" id="Xxi-IJ-HAS"/>
                 <outlet property="forthAnswerButton" destination="9Zf-Xe-LJh" id="p97-d4-ZSH"/>
+                <outlet property="isCorrectLabel" destination="Y0v-wl-bS3" id="tY8-e8-D0C"/>
                 <outlet property="nextQuestionButton" destination="Lii-F4-zn2" id="obr-sQ-69e"/>
                 <outlet property="questionLabel" destination="g4e-4e-gNb" id="fAH-IK-rxm"/>
                 <outlet property="questionNumberLabel" destination="DSE-cb-dT3" id="fsI-Ya-lPi"/>
@@ -26,6 +27,9 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="—Pngtree—vector watercolor flowers fresh literary_693517" translatesAutoresizingMaskIntoConstraints="NO" id="FiF-ct-UCy">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="第一题" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DSE-cb-dT3">
                     <rect key="frame" x="30" y="74" width="91" height="45"/>
                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -40,11 +44,13 @@
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5OW-ab-XoS">
                                     <rect key="frame" x="0.0" y="0.0" width="88.5" height="119.5"/>
+                                    <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                     <state key="normal" title="a"/>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zu1-f1-vKx">
                                     <rect key="frame" x="118.5" y="0.0" width="88.5" height="119.5"/>
+                                    <color key="backgroundColor" systemColor="systemYellowColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                     <state key="normal" title="a"/>
                                 </button>
@@ -55,11 +61,13 @@
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qe7-WL-bs2">
                                     <rect key="frame" x="0.0" y="0.0" width="88.5" height="120"/>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                     <state key="normal" title="a"/>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Zf-Xe-LJh">
                                     <rect key="frame" x="118.5" y="0.0" width="88.5" height="120"/>
+                                    <color key="backgroundColor" systemColor="systemGreenColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                     <state key="normal" title="a"/>
                                 </button>
@@ -78,9 +86,9 @@
                         </button>
                     </subviews>
                 </stackView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g4e-4e-gNb">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="50" translatesAutoresizingMaskIntoConstraints="NO" id="g4e-4e-gNb">
                     <rect key="frame" x="41.5" y="129" width="331" height="224"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="200"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="150"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -92,9 +100,13 @@
                 <constraint firstItem="g4e-4e-gNb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4Jm-2l-E8e"/>
                 <constraint firstItem="DSE-cb-dT3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="FuR-eH-gzs"/>
                 <constraint firstItem="g4e-4e-gNb" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.25" id="JSC-wx-kCV"/>
+                <constraint firstAttribute="trailing" secondItem="FiF-ct-UCy" secondAttribute="trailing" id="QZ5-Wh-GwU"/>
                 <constraint firstItem="DSE-cb-dT3" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="Vox-Fk-Axc"/>
+                <constraint firstItem="FiF-ct-UCy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="YAO-C1-nEx"/>
+                <constraint firstItem="FiF-ct-UCy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="dGL-lu-sWa"/>
                 <constraint firstItem="pqy-hg-3I2" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="efe-QM-TRU"/>
                 <constraint firstItem="pqy-hg-3I2" firstAttribute="top" secondItem="g4e-4e-gNb" secondAttribute="bottom" constant="10" id="k55-db-anH"/>
+                <constraint firstAttribute="bottom" secondItem="FiF-ct-UCy" secondAttribute="bottom" id="o36-Gf-VLl"/>
                 <constraint firstItem="g4e-4e-gNb" firstAttribute="top" secondItem="DSE-cb-dT3" secondAttribute="bottom" constant="10" id="oRv-6g-lKP"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="pqy-hg-3I2" secondAttribute="bottom" constant="30" id="qFC-rd-0Np"/>
                 <constraint firstItem="pqy-hg-3I2" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.5" id="s5c-dg-72A"/>
@@ -104,8 +116,18 @@
         </view>
     </objects>
     <resources>
+        <image name="—Pngtree—vector watercolor flowers fresh literary_693517" width="3543" height="4961"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

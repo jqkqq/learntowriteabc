@@ -14,15 +14,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tabbar = UITabBarController()
         let voiceNav = UINavigationController()
         voiceNav.viewControllers = [VoiceViewController()]
-        voiceNav.tabBarItem = UITabBarItem(title: "发音", image: UIImage(named: ""), selectedImage: UIImage(named: ""))
+        voiceNav.tabBarItem = UITabBarItem(title: "发音", image: UIImage(named: "icons8-voice-32"), selectedImage: UIImage(named: "icons8-voice-32"))
         
         let drawNav = UINavigationController()
         drawNav.viewControllers = [DrawViewController()]
-        drawNav.tabBarItem = UITabBarItem(title: "寫字", image: UIImage(named: ""), selectedImage: UIImage(named: ""))
+        drawNav.tabBarItem = UITabBarItem(title: "寫字", image: UIImage(named: "icons8-ball-point-pen-32"), selectedImage: UIImage(named: "icons8-ball-point-pen-32"))
         
         let testNav = UINavigationController()
         testNav.viewControllers = [TestViewController()]
-        testNav.tabBarItem = UITabBarItem(title: "測驗", image: UIImage(named: ""), selectedImage: UIImage(named: ""))
+        testNav.tabBarItem = UITabBarItem(title: "測驗", image: UIImage(named: "icons8-test-results-32"), selectedImage: UIImage(named: "icons8-test-results-32"))
         
         tabbar.viewControllers = [voiceNav, drawNav, testNav]
         window = UIWindow(frame: UIScreen.main.bounds)
