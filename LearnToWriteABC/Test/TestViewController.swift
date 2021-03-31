@@ -37,6 +37,7 @@ class TestViewController: UIViewController {
     
     //MARK: - set up UI
     private func setupUI() {
+        title = "测验"
         navigationItem.rightBarButtonItems = [restartButton]
         setAlert()
     }
